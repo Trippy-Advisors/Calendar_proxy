@@ -28,6 +28,17 @@ app.get('/reviews/hotels/:id/', (req, res) => {
       })
 })
 
+app.get('/photos/hotels/:id/', (req, res) => {
+    let hotelId =req.params.id;
+    fetch(`http://localhost:3000/photos/hotels/${hotelId}`)
+      .then((response) => {
+          return response.json();
+      })
+      .then((jsonResponse) => {
+          res.send(jsonResponse);
+      })
+})
+
 app.listen(1345, () => {
     console.log('App listening on port 1345');
 })
