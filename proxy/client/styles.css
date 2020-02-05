@@ -2,6 +2,15 @@
     position: static;
 }
 
+#appgallerywrapper {
+    display: flex;
+}
+
+#gallery {
+    position: relative;
+    z-index: 1;
+}
+
 .wrapper {
     width: 60%;
     margin-top: 50px;

@@ -28,9 +28,9 @@ app.get('/reviews/hotels/:id/', (req, res) => {
       })
 })
 
-app.get('/photos/hotels/:id/', (req, res) => {
+app.get('/gallery/:id/', (req, res) => {
     let hotelId =req.params.id;
-    fetch(`http://localhost:3000/photos/hotels/${hotelId}`)
+    fetch(`http://localhost:6969/gallery/${hotelId}`)
       .then((response) => {
           return response.json();
       })
