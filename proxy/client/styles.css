@@ -1,0 +1,13 @@
+#main, #topbanner {
+    position: static;
+}
+
+.wrapper {
+    width: 60%;
+    margin-top: 100px;
+}
+
+body {
+    text-align: initial;
+    margin-left: 100px;
+}
