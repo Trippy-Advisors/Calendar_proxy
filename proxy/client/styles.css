@@ -6,6 +6,10 @@
     display: flex;
 }
 
+#similar {
+    margin-top: 15px;
+}
+
 #gallery {
     position: relative;
     z-index: 1;
@@ -18,5 +22,5 @@
 
 body {
     text-align: initial;
-    margin-left: 100px;
+    margin-left: 80px;
 }
