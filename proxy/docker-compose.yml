@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+    proxy:
+        image: 'bbalbon/trippy_advisors_calendar_widget:proxy'
+        ports: 
+            - '1345:1345'

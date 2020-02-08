@@ -1,41 +1,57 @@
 const express = require('express');
 const app = express();
 const parser = require('body-parser');
-const fetch = require('node-fetch');
+const axios = require('axios');
 
+app.use(express.static(__dirname + '/client'));
 app.use("/:id/", express.static(__dirname + '/client'));
 app.use(parser.urlencoded({extended: true}));
 
+app.get('/calendar/:type/', (req, res) => {
+    let type = req.params.type;
+    axios(`http://3.20.164.242:1128/${type}`)
+      .then((response) => {
+          res.send(response.data);
+      })
+})
+
+app.get('/reviews/:type/', (req, res) => {
+    let type = req.params.type;
+    axios(`http://3.17.98.112:3001/${type}`)
+      .then((response) => {
+          res.send(response.data);
+      })
+})
+
+app.get('/gallery/file/:type/', (req, res) => {
+    let type = req.params.type;
+    axios(`http://52.15.185.43:6969/${type}`)
+      .then((response) => {
+          res.send(response.data);
+      })
+})
+
 app.get('/hotels/:id/', (req, res) => {
     let hotelId = req.params.id;
-    fetch(`http://localhost:1128/hotels/${hotelId}/`)
+    axios(`http://3.20.164.242:1128/hotels/${hotelId}/`)
       .then((response) => {
-          return response.json();
-      })
-      .then((jsonResponse) => {
-          res.send(jsonResponse)
+          res.send(response.data);
       })
 })
 
 app.get('/reviews/hotels/:id/', (req, res) => {
     let hotelId = req.params.id;
-    fetch(`http://localhost:3001/reviews/hotels/${hotelId}`)
+    axios(`http://3.17.98.112:3001/reviews/hotels/${hotelId}`)
       .then((response) => {
-          return response.json();
-      })
-      .then((jsonResponse) => {
-          res.send(jsonResponse);
+          res.send(response.data);
       })
 })
 
 app.get('/gallery/:id/', (req, res) => {
     let hotelId =req.params.id;
-    fetch(`http://localhost:6969/gallery/${hotelId}`)
+    axios(`http://52.15.185.43:6969/gallery/${hotelId}`)
       .then((response) => {
-          return response.json();
-      })
-      .then((jsonResponse) => {
-          res.send(jsonResponse);
+          res.send(response.data);
       })
 })
 
